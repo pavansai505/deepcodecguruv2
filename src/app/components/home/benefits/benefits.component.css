@@ -5,7 +5,7 @@
   }
 
 .card:hover {
-    background-color: #02ced1;
+    background-color:  rgb(254, 3, 104);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
@@ -15,6 +15,6 @@
 }
 
 i{
-    color: #02ced1;
+    color:  rgb(254, 3, 104);
 }
 
