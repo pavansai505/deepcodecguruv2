@@ -6,6 +6,7 @@ import { SignupComponent } from './components/auth/user/signup/signup.component'
 import { AdminSigninComponent } from './components/auth/admin/admin-signin/admin-signin.component';
 import { AdminSignupComponent } from './components/auth/admin/admin-signup/admin-signup.component';
 import { CourseHomeComponent } from './components/courses/course-home/course-home.component';
+import { CourseSearchComponent } from './components/courses/course-search/course-search.component';
 
 export const routes: Routes = [
     {
@@ -16,9 +17,14 @@ export const routes: Routes = [
         path:'home',
         component:HomeComponent
     },
+    // * Courses
     {
         path:'courses/home',
         component:CourseHomeComponent
+    },
+    {
+        path:'courses/search',
+        component:CourseSearchComponent
     },
     //? Authentication pages
     // * User authentication paths
