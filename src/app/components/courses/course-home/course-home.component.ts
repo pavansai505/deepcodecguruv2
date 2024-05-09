@@ -1,5 +1,5 @@
 import { Component,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-course-home',
@@ -19,6 +19,9 @@ export class CourseHomeComponent {
         }
     }
 }
-changePageToSearch(){}
-
+constructor(private router:Router){}
+changePageToSearch(){
+  this.router.navigate(['/courses/search'])
+}
+ 
 }
