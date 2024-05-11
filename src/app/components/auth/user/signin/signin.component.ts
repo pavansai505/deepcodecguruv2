@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {  Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../../services/auth/auth.service';
+import { TokenService } from '../../../../services/token/token.service';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,7 @@ import { AuthService } from '../../../../services/auth/auth.service';
   styleUrl: './signin.component.css'
 })
 export class SigninComponent {
-  constructor(private authService:AuthService,private router:Router){
+  constructor(private authService:AuthService,private router:Router,private tokenService:TokenService){
 
   }
 
@@ -23,7 +24,7 @@ export class SigninComponent {
   onSubmit(form:FormGroup) {
     
     this.authService.signIn(form.value).subscribe({
-      next: (value) =>{sessionStorage.setItem("jwt",value.token);sessionStorage.setItem("username",value.username)},
+      next: (value) =>{this.tokenService.setToken("jwt",value.token);this.tokenService.setToken("username",value.username)},
       error: (err) => console.error('Observable emitted an error: ' + err),
       complete: () =>this.router.navigate(['/home']),
     });

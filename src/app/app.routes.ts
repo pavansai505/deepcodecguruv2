@@ -8,6 +8,7 @@ import { AdminSignupComponent } from './components/auth/admin/admin-signup/admin
 import { CourseHomeComponent } from './components/courses/course-home/course-home.component';
 import { CourseSearchComponent } from './components/courses/course-search/course-search.component';
 import { CourseInfoComponent } from './components/courses/course-info/course-info.component';
+import { CourseLecturesComponent } from './components/courses/course-lectures/course-lectures.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,10 @@ export const routes: Routes = [
     {
         path:'courses/course/info/:id',
         component:CourseInfoComponent
+    },
+    {
+        path:'courses/course/lectures/:id',
+        component:CourseLecturesComponent
     },
     //? Authentication pages
     // * User authentication paths
