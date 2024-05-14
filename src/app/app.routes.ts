@@ -11,6 +11,8 @@ import { CourseInfoComponent } from './components/courses/course-info/course-inf
 import { CourseLecturesComponent } from './components/courses/course-lectures/course-lectures.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
+import { RoutesComponent } from './components/utilities/routes/routes.component';
+import { UserProfileComponent } from './components/user/user-dashboard/user-profile/user-profile.component';
 
 export const routes: Routes = [
     {
@@ -35,7 +37,7 @@ export const routes: Routes = [
         component:CourseInfoComponent
     },
     {
-        path:'courses/course/lectures/:id',
+        path:'courses/course/:id/lectures',
         component:CourseLecturesComponent
     },
     //? Authentication pages
@@ -55,19 +57,28 @@ export const routes: Routes = [
         component:AdminSigninComponent
     },
     {
-        path:'auth/adminAd/signup',
+        path:'auth/admin/signup',
         component:AdminSignupComponent
 
     },
     // * User pages
     {
         path:"user/dashboard",
-        component:UserDashboardComponent
+        component:UserDashboardComponent,
+        children:[{
+            path:"profile",
+            component:UserProfileComponent
+        }]
     },
     // * Admin pages
     {
         path:"admin/dashboard",
         component:AdminDashboardComponent
+    },
+    // ! Miscellanious
+    {
+        path:"routes",
+        component:RoutesComponent
     },
     {
         path:'**',
