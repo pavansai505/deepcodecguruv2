@@ -12,6 +12,9 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 })
 export class UserDashboardComponent {
   constructor(private router:Router,private activatedRouter:ActivatedRoute){
-    router.navigate(["profile"],{relativeTo:this.activatedRouter})
+    
+  }
+  ngOnInit(){
+    this.router.navigate(["profile"],{relativeTo:this.activatedRouter})
   }
 }
