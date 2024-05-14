@@ -65,7 +65,13 @@ export const routes: Routes = [
     {
         path:"user/dashboard",
         component:UserDashboardComponent,
-        children:[{
+        children:[
+            {
+                path:'',
+                redirectTo: 'profile',
+                pathMatch: 'full' 
+            },
+            {
             path:"profile",
             component:UserProfileComponent
         }]
