@@ -9,6 +9,8 @@ import { CourseHomeComponent } from './components/courses/course-home/course-hom
 import { CourseSearchComponent } from './components/courses/course-search/course-search.component';
 import { CourseInfoComponent } from './components/courses/course-info/course-info.component';
 import { CourseLecturesComponent } from './components/courses/course-lectures/course-lectures.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 
 export const routes: Routes = [
     {
@@ -56,6 +58,16 @@ export const routes: Routes = [
         path:'auth/adminAd/signup',
         component:AdminSignupComponent
 
+    },
+    // * User pages
+    {
+        path:"user/dashboard",
+        component:UserDashboardComponent
+    },
+    // * Admin pages
+    {
+        path:"admin/dashboard",
+        component:AdminDashboardComponent
     },
     {
         path:'**',
