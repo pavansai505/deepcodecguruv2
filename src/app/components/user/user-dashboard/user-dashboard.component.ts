@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../utilities/navbar/navbar.component';
 import { FooterComponent } from '../../utilities/footer/footer.component';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,5 +11,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './user-dashboard.component.css'
 })
 export class UserDashboardComponent {
-
+  constructor(private router:Router,private activatedRouter:ActivatedRoute){
+    router.navigate(["profile"],{relativeTo:this.activatedRouter})
+  }
 }
