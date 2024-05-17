@@ -3,11 +3,13 @@ import { Router, RouterLink } from '@angular/router';
 import { CourseDataService } from '../../../services/course/course-data.service';
 import { Course } from '../../../models/course/course';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '../../utilities/navbar/navbar.component';
+import { TruncateStringSizePipe } from '../../../pipes/truncate-string-size.pipe';
 
 @Component({
   selector: 'app-course-home',
   standalone: true,
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule,NavbarComponent,TruncateStringSizePipe],
   templateUrl: './course-home.component.html',
   styleUrl: './course-home.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
@@ -28,7 +30,7 @@ ngOnInit(){
   this.courseService.getCourses().subscribe({
     next: (value) =>this.courses=value,
     error: (err) => console.error('Observable emitted an error: ' + err),
-    complete: () =>console.log("LGTM!")
+    complete: () =>{}
   });
   
 }

@@ -1,30 +1,9 @@
-<header class="p-3 text-bg-light">
-    <div class="container-fluid px-4 py-0">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-            <svg fill="#000000" height="40" width="40" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16.141 7.905c.24.102.24.269 0 .37l-7.204 3.058a1.288 1.288 0 0 1-.874 0L.859 8.276c-.24-.102-.24-.27 0-.371l7.204-3.058a1.287 1.287 0 0 1 .874 0zm-6.833 4.303 3.983-1.69v2.081c0 1.394-2.145 2.524-4.791 2.524s-4.79-1.13-4.79-2.524v-2.082l3.982 1.69a2.226 2.226 0 0 0 1.616 0zm4.94 1.677h1.642v-1.091a.822.822 0 1 0-1.643 0zm.82-3.603a.554.554 0 1 0-.553-.554.554.554 0 0 0 .554.554zm0 1.415a.554.554 0 1 0-.553-.555.554.554 0 0 0 .554.555z"></path></g></svg> 
-            &nbsp; <span class="fs-4 fw-bolder">deepcodecguru</span>
-        </a>
+<app-navbar></app-navbar>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-dark">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-dark">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-dark">About</a></li>
-        </ul>
-        <form class="col-12 col-lg-4 mb-3 mb-lg-0 mx-auto" role="search" (click)="changePageToSearch()">
-          <input type="search" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
-        </form>
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-dark me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
-      </div>
-    </div>
-  </header>
+
+
   <!-- * Main -->
-  <main>
+  <main >
 
     <!-- <section class="py-5 text-center container">
       <div class="row py-lg-5">
@@ -98,17 +77,17 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
   
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-3"> 
           <div class="col" *ngFor="let course of courses">
-            <div class="card shadow-sm shadow-lg" >
+            <div class="card bg-body-tertiary h-100" [routerLink]="['../course/info',course.id]" routerLinkActive="router-link-active" >
               <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cnNlfGVufDB8fDB8fHww" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-title fw-bold">
-                  {{course.title}}
+                  {{course.title}} 
                 </p>
-                <p class="card-text">{{course.description}}</p>
+                <p class="card-text">{{course.description | limitTo:'60'}}</p>
                 <p class="card-text text-success"><i class="bi bi-person-check-fill"></i> {{course.authorName}}</p>
-                <p class="card-text">{{course.lectures.length}}</p>
+                <p class="card-text">Units : {{course.lectures.length}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-dark fw-bold">View</button>
@@ -117,6 +96,7 @@
                   <small class="text-body-secondary">9 mins</small>
                 </div>
               </div>
+              
             </div>
           </div>
         
