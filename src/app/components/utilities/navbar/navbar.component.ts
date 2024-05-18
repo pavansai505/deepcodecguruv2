@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   isUserLoggedIn:boolean=false
   constructor(private router:Router,private accessControl:AccessControlService){
-    this.isUserLoggedIn=accessControl.isUserLoggedIn()
+    this.isUserLoggedIn=accessControl.isUser;
   }
 
 changePageToSearch(){

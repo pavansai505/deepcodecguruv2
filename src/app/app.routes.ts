@@ -4,7 +4,6 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SigninComponent } from './components/auth/user/signin/signin.component';
 import { SignupComponent } from './components/auth/user/signup/signup.component';
 import { AdminSigninComponent } from './components/auth/admin/admin-signin/admin-signin.component';
-import { AdminSignupComponent } from './components/auth/admin/admin-signup/admin-signup.component';
 import { CourseHomeComponent } from './components/courses/course-home/course-home.component';
 import { CourseSearchComponent } from './components/courses/course-search/course-search.component';
 import { CourseInfoComponent } from './components/courses/course-info/course-info.component';
@@ -15,11 +14,13 @@ import { RoutesComponent } from './components/utilities/routes/routes.component'
 import { UserProfileComponent } from './components/user/user-dashboard/user-profile/user-profile.component';
 import { AdminProfileComponent } from './components/admin/admin-dashboard/admin-profile/admin-profile.component';
 import { AdminStatsComponent } from './components/admin/admin-dashboard/admin-stats/admin-stats.component';
+import { authAdminGuard } from './guard/auth-admin.guard';
+import { AdminCoursesViewComponent } from './components/admin/admin-dashboard/admin-courses-view/admin-courses-view.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: RoutesComponent,
   },
   {
     path: 'home',
@@ -57,10 +58,6 @@ export const routes: Routes = [
     path: 'auth/admin/signin',
     component: AdminSigninComponent,
   },
-  {
-    path: 'auth/admin/signup',
-    component: AdminSignupComponent,
-  },
   // * User pages
   {
     path: 'user/dashboard',
@@ -95,7 +92,12 @@ export const routes: Routes = [
         path: 'stats',
         component: AdminStatsComponent,
       },
+      {
+        path: 'courses',
+        component: AdminCoursesViewComponent,
+      },
     ],
+    canActivate:[authAdminGuard]
   },
   {
     path:'admin/stats',
