@@ -7,11 +7,12 @@ import { CourseDataService } from '../../../services/course/course-data.service'
 import { RouterLink } from '@angular/router';
 import { TruncateStringSizePipe } from '../../../pipes/truncate-string-size.pipe';
 import { CommonModule } from '@angular/common';
+import { CourseCardComponent } from '../../utilities/course-card/course-card.component';
 
 @Component({
   selector: 'app-course-search',
   standalone: true,
-  imports: [FooterComponent,NavbarComponent,RouterLink,TruncateStringSizePipe,CommonModule],
+  imports: [FooterComponent,NavbarComponent,RouterLink,TruncateStringSizePipe,CommonModule,CourseCardComponent],
   templateUrl: './course-search.component.html',
   styleUrl: './course-search.component.css'
 })

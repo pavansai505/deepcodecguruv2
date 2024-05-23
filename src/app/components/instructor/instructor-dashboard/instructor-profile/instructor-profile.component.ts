@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { UserDetailsService } from '../../../../services/user/user-details.service';
 
 @Component({
-  selector: 'app-admin-profile',
+  selector: 'app-instructor-profile',
   standalone: true,
   imports: [],
-  templateUrl: './admin-profile.component.html',
-  styleUrl: './admin-profile.component.css'
+  templateUrl: './instructor-profile.component.html',
+  styleUrl: './instructor-profile.component.css'
 })
-export class AdminProfileComponent {
+export class InstructorProfileComponent {
   user:any
   constructor(private userService:UserDetailsService){
     userService.getMyDetails().subscribe({

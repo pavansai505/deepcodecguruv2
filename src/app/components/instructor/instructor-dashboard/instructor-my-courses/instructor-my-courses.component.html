@@ -1,7 +1,7 @@
 <div class="container">
-    <h1 class="pb-2 border-bottom fw-bold text-uppercase">
-        Courses
-        <!-- <span style="float: right">
+  <h1 class="pb-2 border-bottom fw-bold text-uppercase">
+    Courses
+    <!-- <span style="float: right">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="2rem" [routerLink]="['/admin/stats']" routerLinkActive="router-link-active" >
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g
@@ -17,12 +17,10 @@
             </g>
           </svg>
         </span> -->
-      </h1>
-    <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-3"
-        >
-          <div class="col" *ngFor="let course of courses">
-            <app-course-card [course]="course"></app-course-card>
-          </div>
-        </div>
+  </h1>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" *ngFor="let course of courses">
+      <app-course-card [course]="course"></app-course-card>
+    </div>
+  </div>
 </div>

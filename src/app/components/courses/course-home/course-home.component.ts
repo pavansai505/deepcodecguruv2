@@ -5,11 +5,12 @@ import { Course } from '../../../models/course/course';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../utilities/navbar/navbar.component';
 import { TruncateStringSizePipe } from '../../../pipes/truncate-string-size.pipe';
+import { CourseCardComponent } from '../../utilities/course-card/course-card.component';
 
 @Component({
   selector: 'app-course-home',
   standalone: true,
-  imports: [RouterLink,CommonModule,NavbarComponent,TruncateStringSizePipe],
+  imports: [RouterLink,CommonModule,NavbarComponent,TruncateStringSizePipe,CourseCardComponent],
   templateUrl: './course-home.component.html',
   styleUrl: './course-home.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

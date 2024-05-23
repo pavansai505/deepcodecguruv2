@@ -3,7 +3,7 @@
     <div class="col col-lg-8 col-12">
       <div class="row row-cols-1 py-5 px-3 gy-2">
         <div class="col">
-          <span class="h6">Fullname</span>
+          <span class="h6">Fullname : {{user.fullName}}</span>
         </div>
         <div class="col">
           <label for="exampleFormControlInput1" class="form-label"
@@ -14,6 +14,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            [value]="user.email"
           />
         </div>
         <div class="col">
@@ -25,6 +26,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            [value]="user.firstName"
           />
         </div>
         <div class="col">
@@ -36,6 +38,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            [value]="user.lastName"
           />
         </div>
         <div class="col">

@@ -16,6 +16,13 @@ import { AdminProfileComponent } from './components/admin/admin-dashboard/admin-
 import { AdminStatsComponent } from './components/admin/admin-dashboard/admin-stats/admin-stats.component';
 import { authAdminGuard } from './guard/auth-admin.guard';
 import { AdminCoursesViewComponent } from './components/admin/admin-dashboard/admin-courses-view/admin-courses-view.component';
+import { InstructorDashboardComponent } from './components/instructor/instructor-dashboard/instructor-dashboard.component';
+import { InstructorProfileComponent } from './components/instructor/instructor-dashboard/instructor-profile/instructor-profile.component';
+import { InstructorCheckStatsComponent } from './components/instructor/instructor-dashboard/instructor-check-stats/instructor-check-stats.component';
+import { InstructorMyCoursesComponent } from './components/instructor/instructor-dashboard/instructor-my-courses/instructor-my-courses.component';
+import { InstructorModifyCourseComponent } from './components/instructor/instructor-dashboard/instructor-modify-course/instructor-modify-course.component';
+import { InstructorAddCourseComponent } from './components/instructor/instructor-dashboard/instructor-add-course/instructor-add-course.component';
+import { InstructorAddLessonsComponent } from './components/instructor/instructor-dashboard/instructor-add-lessons/instructor-add-lessons.component';
 
 export const routes: Routes = [
   {
@@ -72,6 +79,42 @@ export const routes: Routes = [
         path: 'profile',
         component: UserProfileComponent,
       },
+    ],
+  },
+  // * Instructor pages
+  {
+    path: 'instructor/dashboard',
+    component: InstructorDashboardComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full',
+      },
+      {
+        path: 'profile',
+        component: InstructorProfileComponent,
+      },
+      {
+        path: 'stats',
+        component: InstructorCheckStatsComponent,
+      },
+      {
+        path: 'courses',
+        component: InstructorMyCoursesComponent,
+      },
+      {
+        path: 'courses/modify',
+        component: InstructorModifyCourseComponent,
+      },
+      {
+        path: 'courses/add',
+        component: InstructorAddCourseComponent,
+      },
+      {
+        path:'courses/lessons/add',
+        component:InstructorAddLessonsComponent
+      }
     ],
   },
   // * Admin pages
