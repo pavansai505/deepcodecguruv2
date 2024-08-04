@@ -3,11 +3,12 @@ import { CourseDataService } from '../../../services/course/course-data.service'
 import { Course, Lecture } from '../../../models/course/course';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-course-lectures',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,SafeUrlPipe],
   templateUrl: './course-lectures.component.html',
   styleUrl: './course-lectures.component.css',
 })
@@ -16,8 +17,10 @@ export class CourseLecturesComponent {
   keysArray: string[] = [];
   unitMap: { [key: string]: any[] } = {};
   currentLecture!:Lecture;
+  currentLectureVideoUrl!:string;
   trackByFn!: TrackByFunction<Lecture>;
   $: any;
+https: any;
   constructor(
     private courseService: CourseDataService,
     private activatedRouter: ActivatedRoute
@@ -48,8 +51,8 @@ export class CourseLecturesComponent {
 
   setCurrentUnit(lesson:Lecture){
     this.currentLecture=lesson
-    console.log(lesson);
-    
+    console.log(lesson.lessonVideo);
+    this.currentLectureVideoUrl="https://www.youtube.com/embed/"+lesson.lessonVideo
   }
 
 

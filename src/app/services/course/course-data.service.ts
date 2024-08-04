@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { TokenService } from '../token/token.service';
 import { Observable } from 'rxjs';
 import { Course, Lecture } from '../../models/course/course';
+import CourseApproval from '../../models/course/courseApproval';
+import CourseRegister from '../../models/course/courseRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +56,15 @@ export class CourseDataService {
           'Authorization':'Bearer '+this.token.getToken()
         }
       })
+   }
+   updateCourseApproval=(approvalStatus:CourseApproval):Observable<any>=>{
+      return this.http.put<any>("http://localhost:8080/api/v1/course/updateCourseApproval",approvalStatus)
+   }
+
+   registerToCourse=(data:CourseRegister):Observable<any>=>{
+      return this.http.put<any>("http://localhost:8080/api/v1/course/register",data)
+   }
+   isCourseRegistered=(data:CourseRegister):Observable<any>=>{
+      return this.http.post<any>("http://localhost:8080/api/v1/course/is-registered",data)
    }
 }

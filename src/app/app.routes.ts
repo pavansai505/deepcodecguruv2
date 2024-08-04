@@ -23,6 +23,10 @@ import { InstructorMyCoursesComponent } from './components/instructor/instructor
 import { InstructorModifyCourseComponent } from './components/instructor/instructor-dashboard/instructor-modify-course/instructor-modify-course.component';
 import { InstructorAddCourseComponent } from './components/instructor/instructor-dashboard/instructor-add-course/instructor-add-course.component';
 import { InstructorAddLessonsComponent } from './components/instructor/instructor-dashboard/instructor-add-lessons/instructor-add-lessons.component';
+import { authGuard } from './guard/auth.guard';
+import { AdminRejectedCoursesViewComponent } from './components/admin/admin-dashboard/admin-rejected-courses-view/admin-rejected-courses-view.component';
+import { AdminPendingCoursesViewComponent } from './components/admin/admin-dashboard/admin-pending-courses-view/admin-pending-courses-view.component';
+import { UserCoursesViewComponent } from './components/user/user-dashboard/user-courses-view/user-courses-view.component';
 
 export const routes: Routes = [
   {
@@ -49,6 +53,7 @@ export const routes: Routes = [
   {
     path: 'courses/course/:id/lectures',
     component: CourseLecturesComponent,
+    canActivate:[authGuard]
   },
   //? Authentication pages
   // * User authentication paths
@@ -79,6 +84,14 @@ export const routes: Routes = [
         path: 'profile',
         component: UserProfileComponent,
       },
+      {
+        path: 'courses',
+        component: UserCoursesViewComponent,
+      },
+      {
+        path:'**',
+        redirectTo:'profile'
+      }
     ],
   },
   // * Instructor pages
@@ -139,6 +152,18 @@ export const routes: Routes = [
         path: 'courses',
         component: AdminCoursesViewComponent,
       },
+      {
+        path: 'courses/approved',
+        component: AdminCoursesViewComponent,
+      },
+      {
+        path: 'courses/pending',
+        component: AdminPendingCoursesViewComponent,
+      },
+      {
+        path: 'courses/rejected',
+        component: AdminRejectedCoursesViewComponent,
+      }
     ],
     canActivate:[authAdminGuard]
   },

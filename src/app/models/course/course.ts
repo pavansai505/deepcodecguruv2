@@ -29,5 +29,6 @@ export interface Course {
     histories: any[]; // Assuming this is an array of any type
     lectures: Lecture[];
     courseProgresses: any[]; // Assuming this is an array of any type
+    approvalStatus: string
   }
   

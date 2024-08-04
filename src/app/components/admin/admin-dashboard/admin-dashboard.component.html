@@ -22,9 +22,21 @@
                     </a>
                   </li>
                   <li>
-                    <a [routerLink]="['courses']" routerLinkActive="router-link-active"  class="nav-link link-body-emphasis">
+                    <a [routerLink]="['courses/approved']" routerLinkActive="router-link-active"  class="nav-link link-body-emphasis">
                         <i class="bi bi-journal-code pe-none me-2"></i>
                       Courses
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['courses/pending']" routerLinkActive="router-link-active"  class="nav-link link-body-emphasis">
+                      <i class="bi bi-hourglass-split pe-none me-2"></i>
+                      Pending Courses
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['courses/rejected']" routerLinkActive="router-link-active"  class="nav-link link-body-emphasis">
+                      <i class="bi bi-ban pe-none me-2"></i>
+                      Rejected Courses
                     </a>
                   </li>
                   <hr>

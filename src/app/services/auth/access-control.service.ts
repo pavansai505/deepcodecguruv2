@@ -9,7 +9,7 @@ export class AccessControlService {
   isUser:boolean=false
   isAdmin:boolean=false
   constructor() {
-    const token = sessionStorage.getItem('jwt') || '';
+    const token = window.sessionStorage.getItem('jwt') || '';
     if (token != '') {
       this.result = jwtDecode(token);
       this.roles = this.result.authorities.map((ele: any) => {

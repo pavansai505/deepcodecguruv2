@@ -7,11 +7,11 @@ export class TokenService {
 
   constructor() { }
   getToken=()=>{
-    return sessionStorage.getItem("jwt") || ""
+    return window.sessionStorage.getItem("jwt") || ""
   }
   setToken(key:string,value:any){
 
-    sessionStorage.setItem(key,value)
+    window.sessionStorage.setItem(key,value)
 
   }
 }
